@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Theme {
+public class ThemeEntity {
 	
 	@Id
 	@GeneratedValue
@@ -15,11 +15,11 @@ public class Theme {
     
     private String question;
         
-    public Theme() {
+    public ThemeEntity() {
     	
     }
 
-	public Theme(String name, String question) {
+	public ThemeEntity(String name, String question) {
 		super();
 		this.name = name;
 		this.question = question;
