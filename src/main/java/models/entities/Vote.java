@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import models.utils.Studies;
 
 @Entity
-public class VoteEntity {
+public class Vote {
 	
 	@Id
 	@GeneratedValue
@@ -26,14 +26,14 @@ public class VoteEntity {
 	
 	@ManyToOne
 	@JoinColumn
-	private ThemeEntity theme;
+	private Theme theme;
 
-	public VoteEntity() {
+	public Vote() {
 		
 	}
 
-	public VoteEntity(String ipUser, Double rating, Studies studies,
-			ThemeEntity theme) {
+	public Vote(String ipUser, Double rating, Studies studies,
+			Theme theme) {
 		super();
 		this.ipUser = ipUser;
 		this.rating = rating;
@@ -57,11 +57,11 @@ public class VoteEntity {
 		this.studies = studies;
 	}
 
-	public ThemeEntity getTheme() {
+	public Theme getTheme() {
 		return theme;
 	}
 
-	public void setTheme(ThemeEntity theme) {
+	public void setTheme(Theme theme) {
 		this.theme = theme;
 	}
 
