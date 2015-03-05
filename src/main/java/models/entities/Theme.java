@@ -14,18 +14,15 @@ public class Theme {
     private String name;
     
     private String question;
-    
-    private Double rating;
-    
+        
     public Theme() {
     	
     }
 
-	public Theme(String name, String question, Double rating) {
+	public Theme(String name, String question) {
 		super();
 		this.name = name;
 		this.question = question;
-		this.rating = rating;
 	}
 
 	public String getName() {
@@ -44,22 +41,13 @@ public class Theme {
 		this.question = question;
 	}
 
-	public Double getRating() {
-		return rating;
-	}
-
-	public void setRating(Double rating) {
-		this.rating = rating;
-	}
-
 	public Integer getId() {
 		return id;
 	}
 
 	@Override
 	public String toString() {
-		return "Theme [id=" + id + ", name=" + name + ", question=" + question
-				+ ", rating=" + rating + "]";
+		return "Theme [id=" + id + ", name=" + name + ", question=" + question + "]";
 	}
     
 }
