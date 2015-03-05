@@ -16,6 +16,17 @@ public class Theme {
     private String question;
     
     private Double rating;
+    
+    public Theme() {
+    	
+    }
+
+	public Theme(String name, String question, Double rating) {
+		super();
+		this.name = name;
+		this.question = question;
+		this.rating = rating;
+	}
 
 	public String getName() {
 		return name;
