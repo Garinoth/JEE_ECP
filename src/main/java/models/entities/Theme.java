@@ -49,5 +49,9 @@ public class Theme {
 	public String toString() {
 		return "Theme [id=" + id + ", name=" + name + ", question=" + question + "]";
 	}
+	
+	public boolean equals(Theme theme) {
+		return this.name == theme.name && this.question == theme.question;
+	}
     
 }

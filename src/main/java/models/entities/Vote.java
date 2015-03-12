@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.eclipse.persistence.annotations.CascadeOnDelete;
+
 import models.utils.Studies;
 
 @Entity
@@ -26,6 +28,7 @@ public class Vote {
 	
 	@ManyToOne
 	@JoinColumn
+	@CascadeOnDelete
 	private Theme theme;
 
 	public Vote() {
@@ -75,5 +78,14 @@ public class Vote {
 
 	public Integer getId() {
 		return id;
+	}
+	
+	public boolean equals(Vote vote) {
+		boolean check = true;
+		check = check && this.ipUser.equals(vote.ipUser);
+		check = check && this.rating.equals(vote.rating);
+		check = check && this.studies.equals(vote.studies);
+		check = check && this.theme.equals(vote.theme);
+		return check;
 	}
 }
