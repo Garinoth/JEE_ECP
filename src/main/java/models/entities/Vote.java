@@ -81,6 +81,12 @@ public class Vote {
 	}
 	
 	@Override
+	public String toString() {
+		return "Vote [id=" + id + ", ipUser=" + ipUser + ", rating=" + rating
+				+ ", studies=" + studies + ", theme=" + theme + "]";
+	}
+
+	@Override
 	public boolean equals(Object obj) {
 		Vote vote = (Vote)obj;
 		boolean check = true;
