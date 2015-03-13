@@ -50,8 +50,10 @@ public class Theme {
 		return "Theme [id=" + id + ", name=" + name + ", question=" + question + "]";
 	}
 	
-	public boolean equals(Theme theme) {
-		return this.name == theme.name && this.question == theme.question;
+	@Override
+	public boolean equals(Object obj) {
+		Theme theme = (Theme)obj;
+		return this.name.equals(theme.name) && this.question.equals(theme.question);
 	}
     
 }

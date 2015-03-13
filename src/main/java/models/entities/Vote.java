@@ -80,7 +80,9 @@ public class Vote {
 		return id;
 	}
 	
-	public boolean equals(Vote vote) {
+	@Override
+	public boolean equals(Object obj) {
+		Vote vote = (Vote)obj;
 		boolean check = true;
 		check = check && this.ipUser.equals(vote.ipUser);
 		check = check && this.rating.equals(vote.rating);
