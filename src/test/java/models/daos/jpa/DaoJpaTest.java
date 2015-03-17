@@ -47,9 +47,10 @@ public abstract class DaoJpaTest<E> {
 	
 	@Test
 	public void testRead() {
-		for (int i = 0; i < data.size(); i++) {
-			E d = data.get(i);
-			E e = dao.read(i+1);
+        List<E> entities = dao.findAll();
+		for (int i = 0; i < entities.size(); i++) {
+			E d = entities.get(i);
+			E e = dao.read(supplyId(d));
 			assertEquals(d, e);
 		}
 	}
