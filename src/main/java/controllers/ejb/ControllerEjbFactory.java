@@ -13,14 +13,16 @@ public class ControllerEjbFactory extends ControllerFactory {
     private ShowVotes showVotesController;
     private Vote voteController;
 	
-	public static ControllerEjbFactory factory = null;
-
-    public static void setFactory(ControllerEjbFactory factory) {
-        ControllerEjbFactory.factory = factory;
-    }
+	private static ControllerEjbFactory factory;
+	
+	private ControllerEjbFactory(){
+		
+	}
 
     public static ControllerEjbFactory getFactory() {
-        assert factory != null;
+        if (factory == null) {
+        	factory = new ControllerEjbFactory();
+        }
         return factory;
     }
     

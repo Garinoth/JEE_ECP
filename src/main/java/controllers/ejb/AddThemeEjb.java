@@ -8,4 +8,10 @@ public class AddThemeEjb implements AddTheme {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public void run(String name, String question) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

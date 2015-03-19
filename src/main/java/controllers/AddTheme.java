@@ -1,5 +1,5 @@
 package controllers;
 
-public interface AddTheme extends Controller {
-
+public interface AddTheme {
+	public abstract void run(String name, String question);
 }
