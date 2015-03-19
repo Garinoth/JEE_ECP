@@ -1,5 +1,5 @@
 package controllers;
 
-public interface Vote {
+public interface Vote extends Controller {
 
 }

@@ -1,5 +1,5 @@
 package controllers;
 
-public interface DeleteTheme {
+public interface DeleteTheme extends Controller {
 
 }

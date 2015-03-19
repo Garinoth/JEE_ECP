@@ -1,5 +1,5 @@
 package controllers;
 
-public interface AddTheme {
+public interface AddTheme extends Controller {
 
 }
