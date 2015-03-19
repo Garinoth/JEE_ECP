@@ -7,12 +7,9 @@
 <title>Home </title>
 </head>
 <body>
-	<h1>Home: V1</h1>
+	<h1>Home Votaciones</h1>
 	<p>
-		<a href="/Web/v1/themes">Vista de Persona</a>
-	</p>
-	<p>
-		<a href="/Web/v1/rol">Vista de Rol</a>
+		<a href="/JEE_ECP/jsp/themes">Vista de Temas</a>
 	</p>
 </body>
 </html>
