@@ -28,7 +28,6 @@ public class AddThemeView {
 	}
 	
 	public String process() {
-
 		ControllerEjbFactory.getFactory().getAddThemeController().run(name, question);
 		return "home";
 	}
