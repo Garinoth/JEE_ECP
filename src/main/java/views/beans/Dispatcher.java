@@ -35,6 +35,13 @@ public class Dispatcher extends HttpServlet {
 			request.setAttribute(action, addThemeView);
 			view = action;
 			break;
+		case "deleteTheme":
+			DeleteThemeView deleteThemeView = new DeleteThemeView();
+			deleteThemeView.setId(Integer.parseInt(request.getParameter("id")));
+			deleteThemeView.update();
+			request.setAttribute(action, deleteThemeView);
+			view = action;
+			break;
 		case "votes":
 			VotesView votesView = new VotesView();
 			request.setAttribute(action, votesView);
@@ -68,6 +75,13 @@ public class Dispatcher extends HttpServlet {
 			addThemeView.setQuestion(request.getParameter("question"));
 			request.setAttribute(action, addThemeView);
 			view = addThemeView.process();
+			break;
+		case "deleteTheme":
+			DeleteThemeView deleteThemeView = new DeleteThemeView();
+			deleteThemeView.setId(Integer.valueOf(request.getParameter("id")));
+			deleteThemeView.setAuth(request.getParameter("auth"));
+			request.setAttribute(action, deleteThemeView);
+			view = deleteThemeView.process();
 			break;
 		case "votes":
 			VotesView votesView = new VotesView();
