@@ -19,13 +19,13 @@
 				<td>${theme.name}</td>
 				<td>${theme.question}</td>
 				<td>
-					<form action="/JEE_ECP/jsp/deleteTheme?id=${theme.id}" method="get">
-						<p><input type="submit" value="Eliminar tema"/></p>
+					<form action="/JEE_ECP/jsp/vote?id=${theme.id}" method="get">
+						<p><input type="submit" value="Votar tema"/></p>
 					</form>
 				</td>
 				<td>
-					<form action="/JEE_ECP/jsp/vote?id=${theme.id}" method="get">
-						<p><input type="submit" value="Votar tema"/></p>
+					<form action="/JEE_ECP/jsp/deleteTheme?id=${theme.id}" method="get">
+						<p><input type="submit" value="Eliminar tema"/></p>
 					</form>
 				</td>
 			</tr>
