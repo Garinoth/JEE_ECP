@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import models.daos.DaoFactory;
 import models.daos.jpa.DaoJpaFactory;
+import models.utils.Studies;
 
 @WebServlet("/jsp/*")
 public class Dispatcher extends HttpServlet {
@@ -40,6 +41,13 @@ public class Dispatcher extends HttpServlet {
 			deleteThemeView.setId(Integer.parseInt(request.getParameter("id")));
 			deleteThemeView.update();
 			request.setAttribute(action, deleteThemeView);
+			view = action;
+			break;
+		case "vote":
+			VoteView voteView = new VoteView();
+			voteView.setId(Integer.parseInt(request.getParameter("id")));
+			voteView.update();
+			request.setAttribute(action, voteView);
 			view = action;
 			break;
 		case "votes":
@@ -82,6 +90,15 @@ public class Dispatcher extends HttpServlet {
 			deleteThemeView.setAuth(request.getParameter("auth"));
 			request.setAttribute(action, deleteThemeView);
 			view = deleteThemeView.process();
+			break;
+		case "vote":
+			VoteView voteView = new VoteView();
+			voteView.setIp(request.getParameter("ip"));
+			voteView.setRating(Double.valueOf(request.getParameter("rating")));
+			voteView.setStudies(Studies.valueOf(request.getParameter("studies")));
+			voteView.setId(Integer.valueOf(request.getParameter("id")));
+			request.setAttribute(action, voteView);
+			view = voteView.process();
 			break;
 		case "votes":
 			VotesView votesView = new VotesView();
