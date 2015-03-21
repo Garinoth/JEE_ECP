@@ -1,9 +1,9 @@
 package views.beans;
 
-import controllers.ejb.ControllerEjbFactory;
 import models.daos.jpa.DaoJpaFactory;
 import models.entities.Theme;
 import models.utils.Studies;
+import controllers.ejb.ControllerEjbFactory;
 
 public class VoteView {
 
@@ -11,6 +11,7 @@ public class VoteView {
 	private String ip;
 	private Double rating;
 	private Studies studies;
+	private Studies[] studiesOptions;
 	private Theme theme;
 
 	public Theme getTheme() {
@@ -44,16 +45,25 @@ public class VoteView {
 	public void setRating(Double rating) {
 		this.rating = rating;
 	}
-
+	
 	public Studies getStudies() {
-		return studies;
+		return this.studies;
 	}
 
 	public void setStudies(Studies studies) {
 		this.studies = studies;
 	}
+	
+	public Studies[] getStudiesOptions() {
+		return this.studiesOptions;
+	}
+
+	public void setStudiesOptions(Studies[] studiesOptions) {
+		this.studiesOptions = studiesOptions;
+	}
 
 	public void update() {
+		this.setStudiesOptions(Studies.values());
 		this.setTheme(DaoJpaFactory.getFactory().getThemeDao().read(id));
 	}
 	

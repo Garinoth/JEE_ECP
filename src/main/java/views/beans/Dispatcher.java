@@ -93,10 +93,11 @@ public class Dispatcher extends HttpServlet {
 			break;
 		case "vote":
 			VoteView voteView = new VoteView();
-			voteView.setIp(request.getParameter("ip"));
+			voteView.setIp(this.getRemoteAddr(request));
 			voteView.setRating(Double.valueOf(request.getParameter("rating")));
 			voteView.setStudies(Studies.valueOf(request.getParameter("studies")));
 			voteView.setId(Integer.valueOf(request.getParameter("id")));
+			voteView.update();
 			request.setAttribute(action, voteView);
 			view = voteView.process();
 			break;
@@ -110,6 +111,14 @@ public class Dispatcher extends HttpServlet {
 		this.getServletContext()
 				.getRequestDispatcher(PATH_ROOT_VIEW + view + ".jsp")
 				.forward(request, response);
+	}
+	
+	private String getRemoteAddr(HttpServletRequest request) {
+		String ipAddress = request.getHeader("X-FORWARDED-FOR");
+		if (ipAddress == null) {
+		    ipAddress = request.getRemoteAddr();
+		}
+		return ipAddress;
 	}
 
 }

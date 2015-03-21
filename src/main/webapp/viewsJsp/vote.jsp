@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h2>
-		Vista de <b>Añadir Tema</b>
+		Vista de <b>Votar Tema</b>
 	</h2>
 	<c:set var="voteView" scope="request" value="${vote}" />
 	<p>
@@ -21,8 +21,8 @@
 	<form action="/JEE_ECP/jsp/vote" method="post">
 		<p>
 			Nivel de estudios: <select name="studies">
-				<c:forEach var="studies" items="${voteView.studies}">
-					<option value="${studies.name}">${studies.name}</option>
+				<c:forEach var="studies" items="${voteView.studiesOptions}">
+					<option value="${studies.name()}">${studies.name()}</option>
 				</c:forEach>
 			</select>
 		</p>
