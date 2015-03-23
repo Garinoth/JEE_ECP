@@ -25,7 +25,7 @@
 	<p>
 		Media de votos: <b>${votesView.average}</b>
 	</p>
-	<c:if test="${votesView.averageByStudy != null}">
+	<c:if test="${votesView.averageByStudies != null}">
    		<p>Media de votos para el nivel de estudios ${votesView.studies}: ${votesView.averageByStudy}<p>
 	</c:if>
 	<form action="/JEE_ECP/jsp/votes" method="post">
