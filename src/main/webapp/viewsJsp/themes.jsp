@@ -16,7 +16,7 @@
 	<c:forEach var="theme" items="${themesView.themes}">
 		<table border="1">
 			<tr>
-				<td>${theme.name}</td>
+				<td><a href="/JEE_ECP/jsp/votes?id=${theme.id}">${theme.name}</a></td>
 				<td>${theme.question}</td>
 				<td>
 					<form action="/JEE_ECP/jsp/vote" method="get">

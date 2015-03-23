@@ -12,7 +12,6 @@
 		Vista de <b>Votos</b>
 	</h2>
 	<c:set var="votesView" scope="request" value="${votes}" />	
-	<div>${votesView.update()}</div>
 	<p>
 		Estos son los votos del tema <b>${votesView.theme.name}</b>
 	</p>
@@ -26,7 +25,7 @@
 		Media de votos: <b>${votesView.average}</b>
 	</p>
 	<c:if test="${votesView.averageByStudies != null}">
-   		<p>Media de votos para el nivel de estudios ${votesView.studies}: ${votesView.averageByStudy}<p>
+   		<p>Media de votos para el nivel de estudios ${votesView.studies}: ${votesView.averageByStudies}<p>
 	</c:if>
 	<form action="/JEE_ECP/jsp/votes" method="post">
 		<p>
@@ -39,7 +38,7 @@
 		</p>
 		<p>			
 			<input type="hidden" name="id" value="${votesView.theme.id}" />
-			<input type="submit" value="Votar" />
+			<input type="submit" value="Mostrar votos" />
 		</p>
 	</form>
 	<p>

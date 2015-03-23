@@ -52,6 +52,8 @@ public class Dispatcher extends HttpServlet {
 			break;
 		case "votes":
 			VotesView votesView = new VotesView();
+			votesView.setId(Integer.parseInt(request.getParameter("id")));
+			votesView.update();
 			request.setAttribute(action, votesView);
 			view = action;
 			break;
@@ -103,6 +105,9 @@ public class Dispatcher extends HttpServlet {
 			break;
 		case "votes":
 			VotesView votesView = new VotesView();
+			votesView.setId(Integer.parseInt(request.getParameter("id")));
+			votesView.setStudies(Studies.valueOf(request.getParameter("studies")));
+			votesView.update();
 			request.setAttribute(action, votesView);
 			view = action;
 			break;
