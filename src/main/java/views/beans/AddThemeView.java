@@ -1,10 +1,17 @@
 package views.beans;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+
 import controllers.ejb.ControllerEjbFactory;
 
+@ManagedBean(name = "addTheme")
 public class AddThemeView {
 	
+	@ManagedProperty(value = "name")
 	private String name;
+	
+	@ManagedProperty(value = "question")
 	private String question;
 
 	public AddThemeView() {
