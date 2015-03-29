@@ -49,4 +49,12 @@ public class ThemesView {
 		return "deleteTheme";
 	}
 	
+	public String vote() {
+		Map<String,String> params = 
+                FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+		String themeId = params.get("themeId");
+		this.setThemeId(themeId);
+		return "vote";
+	}
+	
 }

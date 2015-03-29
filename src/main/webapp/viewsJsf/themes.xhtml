@@ -17,6 +17,13 @@
 				<td>#{t.question}</td>
 				<td>
 					<h:form>
+						<h:commandButton value="Votar Tema" action="#{themes.vote}">
+							<f:param name="themeId" value="#{t.id}" />
+						</h:commandButton>
+					</h:form>
+				</td>
+				<td>
+					<h:form>
 						<h:commandButton value="Eliminar Tema" action="#{themes.deleteTheme}">
 							<f:param name="themeId" value="#{t.id}" />
 						</h:commandButton>
