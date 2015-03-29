@@ -57,7 +57,6 @@ public class DeleteThemeView {
 	}
 
 	public void update() {
-		System.out.println(id);
 		this.setTheme(DaoJpaFactory.getFactory().getThemeDao().read(id));
 	}
 	
