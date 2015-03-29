@@ -1,10 +1,18 @@
 package views.beans;
 
+import java.util.Map;
+
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.context.FacesContext;
+
 import models.daos.jpa.DaoJpaFactory;
 import models.entities.Theme;
 import models.utils.Studies;
 import controllers.ejb.ControllerEjbFactory;
 
+@ManagedBean(name="vote")
 public class VoteView {
 
 	private Integer id;
@@ -13,6 +21,9 @@ public class VoteView {
 	private Studies studies;
 	private Studies[] studiesOptions;
 	private Theme theme;
+	
+	@ManagedProperty(value = "#{themes}")
+	private ThemesView themesView;
 
 	public Theme getTheme() {
 		return theme;
@@ -62,9 +73,30 @@ public class VoteView {
 		this.studiesOptions = studiesOptions;
 	}
 
+	public ThemesView getThemesView() {
+		return themesView;
+	}
+
+	public void setThemesView(ThemesView themesView) {
+		this.themesView = themesView;
+	}
+
 	public void update() {
 		this.setStudiesOptions(Studies.values());
 		this.setTheme(DaoJpaFactory.getFactory().getThemeDao().read(id));
+	}
+	
+	@PostConstruct
+	public void updateJsf() {
+		if (themesView.getThemeId() != null) {
+			this.setId(Integer.valueOf(themesView.getThemeId()));
+		} else if (this.id == null) {
+			Map<String,String> params = 
+	                FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+			String id = params.get("id");
+			this.setId(Integer.valueOf(id));
+		}
+		update();
 	}
 	
 	public String process() {
