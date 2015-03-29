@@ -13,7 +13,13 @@
 	<table border="1">
 		<ui:repeat var="t" value="#{themes.themes}" varStatus="status">
 			<tr>
-				<td>#{t.name}</td>
+				<td>
+					<h:form>
+						<h:commandLink value="#{t.name}" action="#{themes.votes}">
+							<f:param name="themeId" value="#{t.id}"/>
+						</h:commandLink>
+					</h:form>
+				</td>
 				<td>#{t.question}</td>
 				<td>
 					<h:form>

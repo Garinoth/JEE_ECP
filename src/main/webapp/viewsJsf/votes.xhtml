@@ -14,7 +14,7 @@
 		Estos son los votos del tema #{votes.theme.name}
 	</p>
 	<p>
-		Pregunta: #{vote.theme.question}
+		Pregunta: #{votes.theme.question}
 	</p>
 	<p>
 		Total de votos: <b>#{votes.total}</b>
@@ -22,17 +22,15 @@
 	<p>
 		Media de votos: <b>#{votes.average}</b>
 	</p>
-	<h:outputLabel rendered="#{votes.averageByStudies != null}">
 		<p>Media de votos para el nivel de estudios #{votes.studies}: #{votes.averageByStudies}</p>
-	</h:outputLabel> 
 	<h:form>
 		<p>
-			Nivel de estudios: <h:selectOneMenu id="studies" value="#{vote.studies}">
-				<f:selectItems value="#{vote.studiesOptions}" var="studies" itemLabel="#{studies.name()}" itemValue="#{studies.name()}"></f:selectItems>
+			Nivel de estudios: <h:selectOneMenu id="studies" value="#{votes.studies}">
+				<f:selectItems value="#{votes.studiesOptions}" var="studies" itemLabel="#{studies.name()}" itemValue="#{studies.name()}"></f:selectItems>
 			</h:selectOneMenu>
 		</p>
-		<h:commandButton value="Mostrar Votos" action="#{vote.process}">
-			<f:param name="id" value="#{vote.theme.id}" />
+		<h:commandButton value="Mostrar Votos" action="#{votes.process}">
+			<f:param name="id" value="#{votes.theme.id}" />
 		</h:commandButton>
 		<p>
 			

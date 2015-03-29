@@ -57,4 +57,12 @@ public class ThemesView {
 		return "vote";
 	}
 	
+	public String votes() {
+		Map<String,String> params = 
+                FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+		String themeId = params.get("themeId");
+		this.setThemeId(themeId);
+		return "votes";
+	}
+	
 }
